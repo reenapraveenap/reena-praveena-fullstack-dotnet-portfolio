@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reena Praveena Pampana - Full Stack .NET Developer | ASP.NET Core | Angular | SQL Server</title>
+    <meta name="description" content="Full Stack .NET Developer specializing in ASP.NET Core, Angular, SQL Server. Expert in building secure, scalable web applications with modern technologies.">
+    <meta name="keywords" content="Full Stack Developer, .NET Developer, ASP.NET Core, Angular, SQL Server, C#, TypeScript, Web API, React, Portfolio">
+    <meta name="author" content="Reena Praveena Pampana">
+    <meta property="og:title" content="Reena Praveena Pampana - Full Stack .NET Developer">
+    <meta property="og:description" content="Building secure, scalable, high-performance web applications with ASP.NET Core, Angular & SQL Server">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Reena Pampana</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#resume" class="nav-link">Resume</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    🚀 Reena Praveena Pampana
+                </h1>
+                <h2 class="hero-subtitle">Full Stack .NET Developer</h2>
+                <div class="hero-tagline">
+                    <span class="typing-text" id="typing-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Building secure, scalable, high-performance web applications with ASP.NET Core, Angular & SQL Server
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="download-resume">
+                        <i class="fas fa-download"></i>
+                        Download Resume
+                    </button>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <img src="https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Reena Praveena Pampana - Full Stack .NET Developer" class="profile-img">
+                    <div class="profile-status">
+                        <span class="status-dot"></span>
+                        Available for opportunities
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Passionate about creating innovative solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-intro">
+                        I'm a dedicated Full Stack .NET Developer with extensive experience in building robust, 
+                        scalable web applications. My expertise spans the entire software development lifecycle, 
+                        from requirement analysis to deployment and maintenance.
+                    </p>
+                    <p>
+                        With deep knowledge in <strong>ASP.NET Core</strong>, <strong>Angular</strong>, and 
+                        <strong>SQL Server</strong>, I specialize in developing modern web applications that deliver 
+                        exceptional user experiences. I'm proficient in implementing secure authentication systems 
+                        using <strong>JWT</strong>, designing <strong>RESTful APIs</strong>, and optimizing database performance.
+                    </p>
+                    <p>
+                        My experience includes working on large-scale projects like the <strong>APSCHE Admission System</strong> 
+                        handling 50K+ students and various enterprise-level applications. I'm passionate about clean code, 
+                        best practices, and staying updated with the latest technologies.
+                    </p>
+                    
+                    <div class="achievements">
+                        <h3>Key Achievements</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Developed admission system handling 50,000+ students</li>
+                            <li><i class="fas fa-check-circle"></i> Built secure certificate verification platform</li>
+                            <li><i class="fas fa-check-circle"></i> Optimized database queries improving performance by 40%</li>
+                            <li><i class="fas fa-check-circle"></i> Implemented JWT authentication for multiple applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend Development</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">ASP.NET Core</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C#</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Web API</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Entity Framework</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Dapper</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Frontend Development</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Angular</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React.js</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">TypeScript</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Bootstrap</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-database"></i>
+                        <h3>Database & Storage</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL Server</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Stored Procedures</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Query Optimization</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools & Cloud</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Azure</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Swagger</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Postman</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Some of the projects I've worked on</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-graduation-cap project-icon"></i>
+                        <h3>APSCHE Web-Based Admission System</h3>
+                    </div>
+                    <p class="project-description">
+                        Large-scale admission management system handling 50K+ students with advanced reporting, 
+                        analytics, and real-time data processing. Built with ASP.NET Core and Angular for 
+                        seamless user experience.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">JWT Auth</span>
+                        <span class="tech-tag">Entity Framework</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>50K+ Users</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-database"></i>
+                            <span>High Performance</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn btn-primary btn-small">View Project</button>
+                        <button class="btn btn-outline btn-small">
+                            <i class="fab fa-github"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-certificate project-icon"></i>
+                        <h3>CETS WBA Platform</h3>
+                    </div>
+                    <p class="project-description">
+                        Certificate verification platform with React frontend and .NET Core APIs. Features 
+                        real-time verification, QR code generation, secure document management, and 
+                        comprehensive audit trails.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">.NET Core</span>
+                        <span class="tech-tag">Web API</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">QR Codes</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-qrcode"></i>
+                            <span>QR Integration</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn btn-primary btn-small">View Project</button>
+                        <button class="btn btn-outline btn-small">
+                            <i class="fab fa-github"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-university project-icon"></i>
+                        <h3>Stree Nidhi Degree Education Module</h3>
+                    </div>
+                    <p class="project-description">
+                        Dynamic form builder with advanced validations for degree management. Features 
+                        customizable workflows, role-based access control, automated notifications, 
+                        and comprehensive reporting system.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ASP.NET MVC</span>
+                        <span class="tech-tag">jQuery</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Stored Procedures</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-cogs"></i>
+                            <span>Dynamic Forms</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Role-Based</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn btn-primary btn-small">View Project</button>
+                        <button class="btn btn-outline btn-small">
+                            <i class="fab fa-github"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-boxes project-icon"></i>
+                        <h3>Asset Management System (KITS Warangal)</h3>
+                    </div>
+                    <p class="project-description">
+                        Comprehensive asset tracking system with inventory management, maintenance scheduling, 
+                        barcode integration, and detailed reporting. Built for efficient resource management 
+                        and cost optimization.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">Dapper</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">Barcode</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-barcode"></i>
+                            <span>Barcode Tracking</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="btn btn-primary btn-small">View Project</button>
+                        <button class="btn btn-outline btn-small">
+                            <i class="fab fa-github"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="container">
+            <div class="resume-content">
+                <div class="resume-text">
+                    <h2>Download My Resume</h2>
+                    <p>Get a comprehensive overview of my experience, skills, and achievements in software development.</p>
+                    <div class="resume-buttons">
+                        <button class="btn btn-primary btn-large" id="download-pdf-resume">
+                            <i class="fas fa-file-pdf"></i>
+                            Download PDF Resume
+                        </button>
+                        <button class="btn btn-secondary btn-large" id="generate-portfolio-pdf">
+                            <i class="fas fa-download"></i>
+                            Generate Portfolio PDF
+                        </button>
+                    </div>
+                </div>
+                <div class="resume-preview">
+                    <div class="resume-mockup">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Resume.pdf</span>
+                        <div class="resume-pages">
+                            <div class="page"></div>
+                            <div class="page"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's discuss your next project or opportunity</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>reenapampana@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/reenapampana</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/reenapampana</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 XXXXX XXXXX</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                        <span class="error-message" id="message-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Reena Praveena Pampana</h3>
+                    <p>Full Stack .NET Developer</p>
+                    <p>Building the future, one line of code at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:reenapampana@example.com" class="footer-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/reenapampana" class="footer-link" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/reenapampana" class="footer-link" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/reenapampana" class="footer-link" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Reena Praveena Pampana. All rights reserved.</p>
+                <p>Made with ❤️ and lots of ☕</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
