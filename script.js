@@ -458,7 +458,12 @@ function initializePDFGeneration() {
             return;
         }
         
-        const { jsPDF } = window.jspdf;
+        // const { jsPDF } = window.jspdf;
+        const { jsPDF } = window.jspdf || {};
+if (!jsPDF) {
+    alert('jsPDF not loaded. Check your script import.');
+    return;
+}
         const doc = new jsPDF();
         
         // Portfolio PDF with more detailed information
