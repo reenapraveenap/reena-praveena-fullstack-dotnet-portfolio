@@ -398,12 +398,12 @@ function initializePDFGeneration() {
     });
     
     function generateResumePDF() {
-        if (typeof window.jsPDF === 'undefined') {
+        if (typeof window.jspdf === 'undefined') {
             alert('PDF generation library not loaded. Please try again.');
             return;
         }
         
-        const { jsPDF } = window.jsPDF;
+        const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
         
         // Add content to PDF
@@ -453,12 +453,12 @@ function initializePDFGeneration() {
     }
     
     function generatePortfolioPDF() {
-        if (typeof window.jsPDF === 'undefined') {
+        if (typeof window.jspdf === 'undefined') {
             alert('PDF generation library not loaded. Please try again.');
             return;
         }
         
-        const { jsPDF } = window.jsPDF;
+        const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
         
         // Portfolio PDF with more detailed information
