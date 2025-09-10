@@ -313,46 +313,103 @@ function initializeContactForm() {
         });
     }
     
-    function showSuccessMessage() {
-        // Create success notification
-        const notification = document.createElement('div');
-        notification.innerHTML = `
-            <div style="
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: linear-gradient(to right, #10b981, #059669);
-                color: white;
-                padding: 1.5rem 2rem;
-                border-radius: 12px;
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-                z-index: 1001;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                animation: slideInRight 0.5s ease-out;
-                max-width: 400px;
-            ">
-                <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
-                <div>
-                    <div style="font-weight: 600; margin-bottom: 0.25rem;">Message Sent Successfully!</div>
-                    <div style="font-size: 0.875rem; opacity: 0.9;">Thank you for reaching out. I'll get back to you soon.</div>
-                </div>
+//     function showSuccessMessage() {
+//         // Create success notification
+//         const notification = document.createElement('div');
+//         notification.innerHTML = `
+//             <div style="
+//                 position: fixed;
+//                 top: 100px;
+//                 right: 20px;
+//                 background: linear-gradient(to right, #10b981, #059669);
+//                 color: white;
+//                 padding: 1.5rem 2rem;
+//                 border-radius: 12px;
+//                 box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+//                 z-index: 1001;
+//                 display: flex;
+//                 align-items: center;
+//                 gap: 1rem;
+//                 animation: slideInRight 0.5s ease-out;
+//                 max-width: 400px;
+//             ">
+//                 <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
+//                 <div>
+//                     <div style="font-weight: 600; margin-bottom: 0.25rem;">Message Sent Successfully!</div>
+//                     <div style="font-size: 0.875rem; opacity: 0.9;">Thank you for reaching out. I'll get back to you soon.</div>
+//                 </div>
+//             </div>
+//         `;
+        
+//         document.body.appendChild(notification);
+        
+//         // Remove notification after 5 seconds
+//         setTimeout(() => {
+//             notification.style.animation = 'slideOutRight 0.5s ease-out';
+//             setTimeout(() => {
+//                 notification.remove();
+//             }, 500);
+//         }, 5000);
+//     }
+// }
+
+    // Function to show custom success notification
+function showSuccessMessage() {
+    const notification = document.createElement('div');
+    notification.innerHTML = `
+        <div style="
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: linear-gradient(to right, #10b981, #059669);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: slideInRight 0.5s ease-out;
+            max-width: 400px;
+        ">
+            <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
+            <div>
+                <div style="font-weight: 600; margin-bottom: 0.25rem;">Message Sent Successfully!</div>
+                <div style="font-size: 0.875rem; opacity: 0.9;">Thank you for reaching out. I'll get back to you soon.</div>
             </div>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Remove notification after 5 seconds
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Remove notification after 5 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.5s ease-out';
         setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.5s ease-out';
-            setTimeout(() => {
-                notification.remove();
-            }, 500);
-        }, 5000);
-    }
+            notification.remove();
+        }, 500);
+    }, 5000);
 }
 
+// Attach form submit event
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    emailjs.sendForm('service_7lt259o', 'template_pwqngdp', this)
+        .then(function() {
+            // Show custom success message
+            showSuccessMessage();
+
+            // Reset the form
+            document.getElementById("contact-form").reset();
+        }, function(error) {
+            alert("Failed to send message: " + JSON.stringify(error));
+        });
+});
+
+
+    
 // Smooth scrolling
 function initializeSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
