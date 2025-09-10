@@ -378,155 +378,189 @@ function initializeSmoothScrolling() {
 }
 
 // PDF Generation functionality
+// function initializePDFGeneration() {
+//     const downloadResumeBtn = document.getElementById('download-resume');
+//     const downloadPDFResumeBtn = document.getElementById('download-pdf-resume');
+//     const generatePortfolioPDFBtn = document.getElementById('generate-portfolio-pdf');
+    
+//     // Simple resume download (you would replace this with actual resume URL)
+//     downloadResumeBtn.addEventListener('click', function() {
+//         // For demo purposes, we'll generate a simple PDF
+//         generateResumePDF();
+//     });
+    
+//     downloadPDFResumeBtn.addEventListener('click', function() {
+//         generateResumePDF();
+//     });
+    
+//     generatePortfolioPDFBtn.addEventListener('click', function() {
+//         generatePortfolioPDF();
+//     });
+    
+//     function generateResumePDF() {
+//         if (typeof window.jspdf === 'undefined') {
+//             alert('PDF generation library not loaded. Please try again.');
+//             return;
+//         }
+        
+//         const { jsPDF } = window.jspdf;
+//         const doc = new jsPDF();
+        
+//         // Add content to PDF
+//         doc.setFontSize(24);
+//         doc.setTextColor(15, 118, 110); // Primary color
+//         doc.text('Reena Praveena Pampana', 20, 30);
+        
+//         doc.setFontSize(16);
+//         doc.setTextColor(100, 116, 139);
+//         doc.text('Full Stack .NET Developer', 20, 45);
+        
+//         doc.setFontSize(12);
+//         doc.setTextColor(0, 0, 0);
+//         doc.text('Email: reenapampana@example.com', 20, 60);
+//         doc.text('LinkedIn: linkedin.com/in/reenapampana', 20, 70);
+//         doc.text('GitHub: github.com/reenapampana', 20, 80);
+        
+//         // Skills section
+//         doc.setFontSize(16);
+//         doc.setTextColor(15, 118, 110);
+//         doc.text('Technical Skills', 20, 100);
+        
+//         doc.setFontSize(12);
+//         doc.setTextColor(0, 0, 0);
+//         doc.text('Backend: ASP.NET Core, C#, Web API, Entity Framework, Dapper', 20, 115);
+//         doc.text('Frontend: Angular, React.js, TypeScript, JavaScript, Bootstrap', 20, 125);
+//         doc.text('Database: SQL Server, Stored Procedures, Query Optimization', 20, 135);
+//         doc.text('Tools: Git, Azure, Swagger, Postman', 20, 145);
+        
+//         // Experience section
+//         doc.setFontSize(16);
+//         doc.setTextColor(15, 118, 110);
+//         doc.text('Key Projects', 20, 165);
+        
+//         doc.setFontSize(12);
+//         doc.setTextColor(0, 0, 0);
+//         doc.text('• APSCHE Web-Based Admission System - Handled 50K+ students', 20, 180);
+//         doc.text('• CETS WBA Platform - Certificate verification with React + .NET Core', 20, 190);
+//         doc.text('• Stree Nidhi Degree Module - Dynamic forms with advanced validations', 20, 200);
+//         doc.text('• Asset Management System - Comprehensive tracking for KITS Warangal', 20, 210);
+        
+//         // Save the PDF
+//         doc.save('Reena_Pampana_Resume.pdf');
+        
+//         // Show success message
+//         showPDFSuccessMessage('Resume downloaded successfully!');
+//     }
+    
+//     function generatePortfolioPDF() {
+//         if (typeof window.jspdf === 'undefined') {
+//             alert('PDF generation library not loaded. Please try again.');
+//             return;
+//         }
+        
+//         // const { jsPDF } = window.jspdf;
+//         const { jsPDF } = window.jspdf || {};
+// if (!jsPDF) {
+//     alert('jsPDF not loaded. Check your script import.');
+//     return;
+// }
+//         const doc = new jsPDF();
+        
+//         // Portfolio PDF with more detailed information
+//         doc.setFontSize(20);
+//         doc.setTextColor(15, 118, 110);
+//         doc.text('Portfolio - Reena Praveena Pampana', 20, 30);
+        
+//         doc.setFontSize(14);
+//         doc.setTextColor(100, 116, 139);
+//         doc.text('Full Stack .NET Developer', 20, 45);
+        
+//         // About section
+//         doc.setFontSize(16);
+//         doc.setTextColor(15, 118, 110);
+//         doc.text('About Me', 20, 65);
+        
+//         doc.setFontSize(10);
+//         doc.setTextColor(0, 0, 0);
+//         const aboutText = 'Passionate Full Stack .NET Developer with extensive experience in building robust, scalable web applications. Expertise in ASP.NET Core, Angular, and SQL Server.';
+//         const splitAbout = doc.splitTextToSize(aboutText, 170);
+//         doc.text(splitAbout, 20, 80);
+        
+//         // Projects section
+//         doc.setFontSize(16);
+//         doc.setTextColor(15, 118, 110);
+//         doc.text('Featured Projects', 20, 110);
+        
+//         doc.setFontSize(12);
+//         doc.setTextColor(0, 0, 0);
+//         doc.text('1. APSCHE Admission System', 20, 125);
+//         doc.setFontSize(10);
+//         doc.text('   Technologies: ASP.NET Core, Angular, SQL Server, JWT', 25, 135);
+//         doc.text('   Scale: 50,000+ students handled', 25, 145);
+        
+//         doc.setFontSize(12);
+//         doc.text('2. CETS WBA Platform', 20, 160);
+//         doc.setFontSize(10);
+//         doc.text('   Technologies: React.js, .NET Core, Web API', 25, 170);
+//         doc.text('   Features: Certificate verification, QR codes', 25, 180);
+        
+//         doc.setFontSize(12);
+//         doc.text('3. Asset Management System', 20, 195);
+//         doc.setFontSize(10);
+//         doc.text('   Technologies: ASP.NET Core, Angular, Dapper, Azure', 25, 205);
+//         doc.text('   Client: KITS Warangal', 25, 215);
+        
+//         // Contact info
+//         doc.setFontSize(16);
+//         doc.setTextColor(15, 118, 110);
+//         doc.text('Contact Information', 20, 240);
+        
+//         doc.setFontSize(10);
+//         doc.setTextColor(0, 0, 0);
+//         doc.text('Email: reenapampana@example.com', 20, 255);
+//         doc.text('LinkedIn: linkedin.com/in/reenapampana', 20, 265);
+//         doc.text('GitHub: github.com/reenapampana', 20, 275);
+        
+//         // Save the PDF
+//         doc.save('Reena_Pampana_Portfolio.pdf');
+        
+//         // Show success message
+//         showPDFSuccessMessage('Portfolio PDF generated successfully!');
+//     }
+
 function initializePDFGeneration() {
     const downloadResumeBtn = document.getElementById('download-resume');
     const downloadPDFResumeBtn = document.getElementById('download-pdf-resume');
     const generatePortfolioPDFBtn = document.getElementById('generate-portfolio-pdf');
-    
-    // Simple resume download (you would replace this with actual resume URL)
+
+    // Function to download a file
+    function downloadFile(filePath, fileName) {
+        const link = document.createElement('a');
+        link.href = filePath;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Attach click events for download
     downloadResumeBtn.addEventListener('click', function() {
-        // For demo purposes, we'll generate a simple PDF
-        generateResumePDF();
+        downloadFile('Resume.pdf', 'ReenaPraveenaP_FullStack_DotNetDev_Resume.pdf'); // uploaded resume
     });
-    
+
     downloadPDFResumeBtn.addEventListener('click', function() {
-        generateResumePDF();
+        downloadFile('Resume.pdf', 'ReenaPraveenaP_FullStack_DotNetDev_Resume.pdf'); // same resume
     });
-    
+
     generatePortfolioPDFBtn.addEventListener('click', function() {
-        generatePortfolioPDF();
+        downloadFile('Portfolio.pdf', 'Reena_Pampana_Portfolio.pdf'); // uploaded portfolio
     });
-    
-    function generateResumePDF() {
-        if (typeof window.jspdf === 'undefined') {
-            alert('PDF generation library not loaded. Please try again.');
-            return;
-        }
-        
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        
-        // Add content to PDF
-        doc.setFontSize(24);
-        doc.setTextColor(15, 118, 110); // Primary color
-        doc.text('Reena Praveena Pampana', 20, 30);
-        
-        doc.setFontSize(16);
-        doc.setTextColor(100, 116, 139);
-        doc.text('Full Stack .NET Developer', 20, 45);
-        
-        doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0);
-        doc.text('Email: reenapampana@example.com', 20, 60);
-        doc.text('LinkedIn: linkedin.com/in/reenapampana', 20, 70);
-        doc.text('GitHub: github.com/reenapampana', 20, 80);
-        
-        // Skills section
-        doc.setFontSize(16);
-        doc.setTextColor(15, 118, 110);
-        doc.text('Technical Skills', 20, 100);
-        
-        doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0);
-        doc.text('Backend: ASP.NET Core, C#, Web API, Entity Framework, Dapper', 20, 115);
-        doc.text('Frontend: Angular, React.js, TypeScript, JavaScript, Bootstrap', 20, 125);
-        doc.text('Database: SQL Server, Stored Procedures, Query Optimization', 20, 135);
-        doc.text('Tools: Git, Azure, Swagger, Postman', 20, 145);
-        
-        // Experience section
-        doc.setFontSize(16);
-        doc.setTextColor(15, 118, 110);
-        doc.text('Key Projects', 20, 165);
-        
-        doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0);
-        doc.text('• APSCHE Web-Based Admission System - Handled 50K+ students', 20, 180);
-        doc.text('• CETS WBA Platform - Certificate verification with React + .NET Core', 20, 190);
-        doc.text('• Stree Nidhi Degree Module - Dynamic forms with advanced validations', 20, 200);
-        doc.text('• Asset Management System - Comprehensive tracking for KITS Warangal', 20, 210);
-        
-        // Save the PDF
-        doc.save('Reena_Pampana_Resume.pdf');
-        
-        // Show success message
-        showPDFSuccessMessage('Resume downloaded successfully!');
-    }
-    
-    function generatePortfolioPDF() {
-        if (typeof window.jspdf === 'undefined') {
-            alert('PDF generation library not loaded. Please try again.');
-            return;
-        }
-        
-        // const { jsPDF } = window.jspdf;
-        const { jsPDF } = window.jspdf || {};
-if (!jsPDF) {
-    alert('jsPDF not loaded. Check your script import.');
-    return;
 }
-        const doc = new jsPDF();
-        
-        // Portfolio PDF with more detailed information
-        doc.setFontSize(20);
-        doc.setTextColor(15, 118, 110);
-        doc.text('Portfolio - Reena Praveena Pampana', 20, 30);
-        
-        doc.setFontSize(14);
-        doc.setTextColor(100, 116, 139);
-        doc.text('Full Stack .NET Developer', 20, 45);
-        
-        // About section
-        doc.setFontSize(16);
-        doc.setTextColor(15, 118, 110);
-        doc.text('About Me', 20, 65);
-        
-        doc.setFontSize(10);
-        doc.setTextColor(0, 0, 0);
-        const aboutText = 'Passionate Full Stack .NET Developer with extensive experience in building robust, scalable web applications. Expertise in ASP.NET Core, Angular, and SQL Server.';
-        const splitAbout = doc.splitTextToSize(aboutText, 170);
-        doc.text(splitAbout, 20, 80);
-        
-        // Projects section
-        doc.setFontSize(16);
-        doc.setTextColor(15, 118, 110);
-        doc.text('Featured Projects', 20, 110);
-        
-        doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0);
-        doc.text('1. APSCHE Admission System', 20, 125);
-        doc.setFontSize(10);
-        doc.text('   Technologies: ASP.NET Core, Angular, SQL Server, JWT', 25, 135);
-        doc.text('   Scale: 50,000+ students handled', 25, 145);
-        
-        doc.setFontSize(12);
-        doc.text('2. CETS WBA Platform', 20, 160);
-        doc.setFontSize(10);
-        doc.text('   Technologies: React.js, .NET Core, Web API', 25, 170);
-        doc.text('   Features: Certificate verification, QR codes', 25, 180);
-        
-        doc.setFontSize(12);
-        doc.text('3. Asset Management System', 20, 195);
-        doc.setFontSize(10);
-        doc.text('   Technologies: ASP.NET Core, Angular, Dapper, Azure', 25, 205);
-        doc.text('   Client: KITS Warangal', 25, 215);
-        
-        // Contact info
-        doc.setFontSize(16);
-        doc.setTextColor(15, 118, 110);
-        doc.text('Contact Information', 20, 240);
-        
-        doc.setFontSize(10);
-        doc.setTextColor(0, 0, 0);
-        doc.text('Email: reenapampana@example.com', 20, 255);
-        doc.text('LinkedIn: linkedin.com/in/reenapampana', 20, 265);
-        doc.text('GitHub: github.com/reenapampana', 20, 275);
-        
-        // Save the PDF
-        doc.save('Reena_Pampana_Portfolio.pdf');
-        
-        // Show success message
-        showPDFSuccessMessage('Portfolio PDF generated successfully!');
-    }
+
+// // Initialize the download functionality
+// initializePDFDownload();
+
+
     
     function showPDFSuccessMessage(message) {
         const notification = document.createElement('div');
