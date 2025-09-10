@@ -209,150 +209,250 @@ function animateSkillBars() {
     });
 }
 
-// Initialize EmailJS
-(function(){
-    emailjs.init("ZbhAuwPnsYbUMEnS6"); // Your EmailJS Public Key
-})();
+// // Initialize EmailJS
+// (function(){
+//     emailjs.init("ZbhAuwPnsYbUMEnS6"); // Your EmailJS Public Key
+// })();
 
-// Phone number validation
-function isValidPhoneNumber(phone) {
-    const phoneRegex = /^[6-9]\d{9}$/; // Indian 10-digit phone numbers
-    return phoneRegex.test(phone);
+// // Phone number validation
+// function isValidPhoneNumber(phone) {
+//     const phoneRegex = /^[6-9]\d{9}$/; // Indian 10-digit phone numbers
+//     return phoneRegex.test(phone);
+// }
+
+// // Email validation
+// function isValidEmail(email) {
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     return emailRegex.test(email);
+// }
+
+// // Function to show custom success notification
+// function showSuccessMessage() {
+//     const notification = document.createElement('div');
+//     notification.innerHTML = `
+//         <div style="
+//             position: fixed;
+//             top: 100px;
+//             right: 20px;
+//             background: linear-gradient(to right, #10b981, #059669);
+//             color: white;
+//             padding: 1.5rem 2rem;
+//             border-radius: 12px;
+//             box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+//             z-index: 1001;
+//             display: flex;
+//             align-items: center;
+//             gap: 1rem;
+//             animation: slideInRight 0.5s ease-out;
+//             max-width: 400px;
+//         ">
+//             <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
+//             <div>
+//                 <div style="font-weight: 600; margin-bottom: 0.25rem;">Message Sent Successfully!</div>
+//                 <div style="font-size: 0.875rem; opacity: 0.9;">Thank you for reaching out. I will get back to you soon.</div>
+//             </div>
+//         </div>
+//     `;
+//     document.body.appendChild(notification);
+    
+//     setTimeout(() => {
+//         notification.style.animation = 'slideOutRight 0.5s ease-out';
+//         setTimeout(() => notification.remove(), 500);
+//     }, 5000);
+// }
+
+// // Initialize contact form
+// function initializeContactForm() {
+//     const contactForm = document.getElementById('contact-form');
+//     const nameInput = document.getElementById('name');
+//     const emailInput = document.getElementById('email');
+//     const phoneInput = document.getElementById('mobile'); // make sure your input ID is 'mobile'
+//     const messageInput = document.getElementById('message');
+
+//     // Helper functions for errors
+//     function showError(elementId, message) {
+//         const errorElement = document.getElementById(elementId);
+//         errorElement.textContent = message;
+//         errorElement.classList.add('show');
+//     }
+
+//     function clearError(elementId) {
+//         const errorElement = document.getElementById(elementId);
+//         errorElement.textContent = '';
+//         errorElement.classList.remove('show');
+//     }
+
+//     function clearErrors() {
+//         const errorElements = document.querySelectorAll('.error-message');
+//         errorElements.forEach(error => {
+//             error.classList.remove('show');
+//             error.textContent = '';
+//         });
+//     }
+
+//     // Real-time validation
+//     nameInput.addEventListener('blur', () => {
+//         if (!nameInput.value.trim()) showError('name-error', 'Full name is required');
+//         else if (nameInput.value.trim().length < 2) showError('name-error', 'Name must be at least 2 characters');
+//         else clearError('name-error');
+//     });
+
+//     emailInput.addEventListener('blur', () => {
+//         if (!emailInput.value.trim()) showError('email-error', 'Email address is required');
+//         else if (!isValidEmail(emailInput.value.trim())) showError('email-error', 'Please enter a valid email');
+//         else clearError('email-error');
+//     });
+
+//     phoneInput.addEventListener('blur', () => {
+//         if (!phoneInput.value.trim()) showError('phone-error', 'Phone number is required');
+//         else if (!isValidPhoneNumber(phoneInput.value.trim())) showError('phone-error', 'Enter a valid 10-digit number');
+//         else clearError('phone-error');
+//     });
+
+//     messageInput.addEventListener('blur', () => {
+//         if (!messageInput.value.trim()) showError('message-error', 'Message is required');
+//         else if (messageInput.value.trim().length < 10) showError('message-error', 'Message must be at least 10 characters');
+//         else clearError('message-error');
+//     });
+
+//     // Form submit
+//     contactForm.addEventListener('submit', function(e) {
+//         e.preventDefault();
+//         clearErrors();
+
+//         let isValid = true;
+
+//         // Validate Name
+//         if (!nameInput.value.trim()) { showError('name-error', 'Full name is required'); isValid = false; }
+//         else if (nameInput.value.trim().length < 2) { showError('name-error', 'Name must be at least 2 characters'); isValid = false; }
+
+//         // Validate Email
+//         if (!emailInput.value.trim()) { showError('email-error', 'Email address is required'); isValid = false; }
+//         else if (!isValidEmail(emailInput.value.trim())) { showError('email-error', 'Please enter a valid email'); isValid = false; }
+
+//         // Validate Phone
+//         if (!phoneInput.value.trim()) { showError('phone-error', 'Phone number is required'); isValid = false; }
+//         else if (!isValidPhoneNumber(phoneInput.value.trim())) { showError('phone-error', 'Enter a valid 10-digit number'); isValid = false; }
+
+//         // Validate Message
+//         if (!messageInput.value.trim()) { showError('message-error', 'Message is required'); isValid = false; }
+//         else if (messageInput.value.trim().length < 10) { showError('message-error', 'Message must be at least 10 characters'); isValid = false; }
+
+//         if (isValid) {
+//             // Send form using EmailJS
+//             emailjs.sendForm('service_7lt259o', 'template_pwqngdp', this)
+//                 .then(function() {
+//                     showSuccessMessage(); // Show custom notification
+//                     contactForm.reset();  // Clear form
+//                 }, function(error) {
+//                     alert("Failed to send message: " + JSON.stringify(error));
+//                 });
+//         }
+//     });
+// }
+
+// // Initialize when DOM is ready
+// document.addEventListener('DOMContentLoaded', initializeContactForm);
+
+// Initialize EmailJS (v4)
+emailjs.init('ZbhAuwPnsYbUMEnS6'); // Replace with your public key from EmailJS
+
+const form = document.getElementById('contact-form');
+
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Grab values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('mobile').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const time = new Date().toLocaleString(); // Add timestamp
+
+        // Validation
+        let isValid = true;
+
+        if (name.length < 2) {
+            showError('name-error', 'Name must be at least 2 characters');
+            isValid = false;
+        } else clearError('name-error');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showError('email-error', 'Invalid email');
+            isValid = false;
+        } else clearError('email-error');
+
+        const phoneRegex = /^[6-9]\d{9}$/;
+        if (phone && !phoneRegex.test(phone)) {
+            showError('phone-error', 'Invalid 10-digit phone number');
+            isValid = false;
+        } else clearError('phone-error');
+
+        if (message.length < 10) {
+            showError('message-error', 'Message must be at least 10 characters');
+            isValid = false;
+        } else clearError('message-error');
+
+        if (!isValid) return;
+
+        // Template params
+        const templateParams = {
+            name: name,
+            email: email,
+            phone: phone,
+            subject: subject,
+            message: message,
+            time: time
+        };
+
+        // Send email
+        emailjs.send('service_7lt259o', 'template_pwqngdp', templateParams)
+            .then(() => {
+                showSuccessMessage();
+                form.reset();
+            })
+            .catch(error => {
+                alert("Failed to send message: " + JSON.stringify(error));
+            });
+    });
 }
 
-// Email validation
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+// Error helper
+function showError(id, msg) {
+    const el = document.getElementById(id);
+    if (el) {
+        el.textContent = msg;
+        el.classList.add('show');
+    }
 }
 
-// Function to show custom success notification
+function clearError(id) {
+    const el = document.getElementById(id);
+    if (el) {
+        el.textContent = '';
+        el.classList.remove('show');
+    }
+}
+
+// Success notification
 function showSuccessMessage() {
     const notification = document.createElement('div');
     notification.innerHTML = `
         <div style="
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: linear-gradient(to right, #10b981, #059669);
-            color: white;
-            padding: 1.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 20px 25px rgba(0,0,0,0.1);
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            animation: slideInRight 0.5s ease-out;
-            max-width: 400px;
+            position: fixed; top: 100px; right: 20px;
+            background: #10b981; color: white;
+            padding: 1.5rem 2rem; border-radius: 12px;
+            z-index: 1001; box-shadow: 0 10px 15px rgba(0,0,0,0.2);
         ">
-            <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
-            <div>
-                <div style="font-weight: 600; margin-bottom: 0.25rem;">Message Sent Successfully!</div>
-                <div style="font-size: 0.875rem; opacity: 0.9;">Thank you for reaching out. I will get back to you soon.</div>
-            </div>
+            <strong>Message Sent Successfully!</strong>
         </div>
     `;
     document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.5s ease-out';
-        setTimeout(() => notification.remove(), 500);
-    }, 5000);
+    setTimeout(() => notification.remove(), 4000);
 }
-
-// Initialize contact form
-function initializeContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const phoneInput = document.getElementById('mobile'); // make sure your input ID is 'mobile'
-    const messageInput = document.getElementById('message');
-
-    // Helper functions for errors
-    function showError(elementId, message) {
-        const errorElement = document.getElementById(elementId);
-        errorElement.textContent = message;
-        errorElement.classList.add('show');
-    }
-
-    function clearError(elementId) {
-        const errorElement = document.getElementById(elementId);
-        errorElement.textContent = '';
-        errorElement.classList.remove('show');
-    }
-
-    function clearErrors() {
-        const errorElements = document.querySelectorAll('.error-message');
-        errorElements.forEach(error => {
-            error.classList.remove('show');
-            error.textContent = '';
-        });
-    }
-
-    // Real-time validation
-    nameInput.addEventListener('blur', () => {
-        if (!nameInput.value.trim()) showError('name-error', 'Full name is required');
-        else if (nameInput.value.trim().length < 2) showError('name-error', 'Name must be at least 2 characters');
-        else clearError('name-error');
-    });
-
-    emailInput.addEventListener('blur', () => {
-        if (!emailInput.value.trim()) showError('email-error', 'Email address is required');
-        else if (!isValidEmail(emailInput.value.trim())) showError('email-error', 'Please enter a valid email');
-        else clearError('email-error');
-    });
-
-    phoneInput.addEventListener('blur', () => {
-        if (!phoneInput.value.trim()) showError('phone-error', 'Phone number is required');
-        else if (!isValidPhoneNumber(phoneInput.value.trim())) showError('phone-error', 'Enter a valid 10-digit number');
-        else clearError('phone-error');
-    });
-
-    messageInput.addEventListener('blur', () => {
-        if (!messageInput.value.trim()) showError('message-error', 'Message is required');
-        else if (messageInput.value.trim().length < 10) showError('message-error', 'Message must be at least 10 characters');
-        else clearError('message-error');
-    });
-
-    // Form submit
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        clearErrors();
-
-        let isValid = true;
-
-        // Validate Name
-        if (!nameInput.value.trim()) { showError('name-error', 'Full name is required'); isValid = false; }
-        else if (nameInput.value.trim().length < 2) { showError('name-error', 'Name must be at least 2 characters'); isValid = false; }
-
-        // Validate Email
-        if (!emailInput.value.trim()) { showError('email-error', 'Email address is required'); isValid = false; }
-        else if (!isValidEmail(emailInput.value.trim())) { showError('email-error', 'Please enter a valid email'); isValid = false; }
-
-        // Validate Phone
-        if (!phoneInput.value.trim()) { showError('phone-error', 'Phone number is required'); isValid = false; }
-        else if (!isValidPhoneNumber(phoneInput.value.trim())) { showError('phone-error', 'Enter a valid 10-digit number'); isValid = false; }
-
-        // Validate Message
-        if (!messageInput.value.trim()) { showError('message-error', 'Message is required'); isValid = false; }
-        else if (messageInput.value.trim().length < 10) { showError('message-error', 'Message must be at least 10 characters'); isValid = false; }
-
-        if (isValid) {
-            // Send form using EmailJS
-            emailjs.sendForm('service_7lt259o', 'template_pwqngdp', this)
-                .then(function() {
-                    showSuccessMessage(); // Show custom notification
-                    contactForm.reset();  // Clear form
-                }, function(error) {
-                    alert("Failed to send message: " + JSON.stringify(error));
-                });
-        }
-    });
-}
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initializeContactForm);
 
 
 // // Contact form functionality
