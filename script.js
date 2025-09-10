@@ -598,7 +598,7 @@ function initializePDFGeneration() {
             }, 500);
         }, 4000);
     }
-}
+
 
 // Parallax effects
 function initializeParallaxEffects() {
