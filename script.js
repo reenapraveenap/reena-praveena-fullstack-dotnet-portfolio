@@ -107,9 +107,6 @@ function initializeNavigation() {
             document.body.style.overflow = '';
         });
     });
-}
-
-
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
