@@ -448,10 +448,18 @@ body {
 }
 
 /* Sections */
+/* section {
+    padding: 8rem 0;
+    position: relative;
+} */
+
+/* Changed here: Added scroll-margin-top to offset fixed navbar height */
 section {
     padding: 8rem 0;
     position: relative;
+    scroll-margin-top: 90px; /* Changed here: adjust to navbar height */
 }
+
 
 .section-header {
     text-align: center;
