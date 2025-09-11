@@ -94,13 +94,25 @@ document.addEventListener('DOMContentLoaded', function() {
 //     }, 16));
 // }
 
+// Throttle function
+function throttle(fn, wait) {
+    let lastTime = 0;
+    return function(...args) {
+        const now = Date.now();
+        if (now - lastTime >= wait) {
+            fn.apply(this, args);
+            lastTime = now;
+        }
+    };
+}
+
 // Navigation functionality
 function initializeNavigation() {
     const navbar = document.getElementById('navbar');
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     // Navbar scroll effect
     window.addEventListener('scroll', throttle(function() {
         if (window.scrollY > 50) {
@@ -109,18 +121,18 @@ function initializeNavigation() {
             navbar.classList.remove('scrolled');
         }
     }, 16));
-    
+
     // Mobile menu toggle
     navToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
         document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
-    
+
     // Smooth scroll for each nav link
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // stop instant jump
+            e.preventDefault();
 
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
@@ -144,8 +156,8 @@ function initializeNavigation() {
     window.addEventListener('scroll', throttle(function() {
         let current = '';
         const sections = document.querySelectorAll('section');
-        const navbarHeight = navbar.offsetHeight; 
-        
+        const navbarHeight = navbar.offsetHeight;
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop - navbarHeight;
             const sectionHeight = section.offsetHeight;
@@ -153,7 +165,7 @@ function initializeNavigation() {
                 current = section.getAttribute('id');
             }
         });
-        
+
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
@@ -161,19 +173,8 @@ function initializeNavigation() {
             }
         });
     }, 16));
-} // <-- This closing bracket was missing
+} // <-- only ONE closing bracket here
 
-
-function throttle(fn, wait) {
-    let lastTime = 0;
-    return function(...args) {
-        const now = Date.now();
-        if (now - lastTime >= wait) {
-            fn.apply(this, args);
-            lastTime = now;
-        }
-    };
-}
 
 
 // Typing animation
