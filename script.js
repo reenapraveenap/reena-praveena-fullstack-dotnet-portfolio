@@ -718,21 +718,57 @@ function showSuccessMessage() {
 // });
 
     
-// Smooth scrolling
+// // Smooth scrolling
+// function initializeSmoothScrolling() {
+//     const links = document.querySelectorAll('a[href^="#"]');
+    
+//     links.forEach(link => {
+//         link.addEventListener('click', function(e) {
+//             e.preventDefault();
+            
+//             const targetId = this.getAttribute('href');
+//             const targetElement = document.querySelector(targetId);
+            
+//             if (targetElement) {
+//                 const navbarHeight = document.getElementById('navbar').offsetHeight;
+//                 const targetPosition = targetElement.offsetTop - navbarHeight - 20;
+                
+//                 window.scrollTo({
+//                     top: targetPosition,
+//                     behavior: 'smooth'
+//                 });
+//             }
+//         });
+//     });
+// }
+// Smooth scrolling for navbar links
 function initializeSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
+    const navbar = document.getElementById('navbar'); // Ensure navbar has id="navbar"
+
     links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const navbarHeight = document.getElementById('navbar').offsetHeight;
-                const targetPosition = targetElement.offsetTop - navbarHeight - 20;
-                
+            e.preventDefault(); // Prevent default jump
+
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                const navbarHeight = navbar.offsetHeight;
+
+                // Calculate section position relative to document
+                const elementTop = targetSection.getBoundingClientRect().top + window.scrollY;
+
+                // Add small margin so content isn't flush against navbar
+                let targetPosition = elementTop - navbarHeight - 5;
+
+                // Prevent scrolling past bottom of page
+                const maxScroll = document.body.scrollHeight - window.innerHeight;
+                if (targetPosition > maxScroll) {
+                    targetPosition = maxScroll;
+                }
+
+                // Smooth scroll to section
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -741,6 +777,10 @@ function initializeSmoothScrolling() {
         });
     });
 }
+
+// Initialize after DOM loads
+document.addEventListener('DOMContentLoaded', initializeSmoothScrolling);
+
 
 // PDF Generation functionality
 // function initializePDFGeneration() {
