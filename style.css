@@ -11,71 +11,28 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* Animation defaults */
-  --transition-speed: 0.3s;
-  --main-color: #646cff;
-  --hover-color: #535bf2;
-  --accent-color: #f7df1e;
-  --dark-bg: #1a1a1a;
 }
 
-/* Smooth fade-in animation */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  opacity: 0;
-  animation: fadeIn 1.2s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-a {
-  font-weight: 500;
-  color: var(--main-color);
-  text-decoration: none;
-  position: relative;
-  transition: color var(--transition-speed);
-}
-a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -2px;
-  background-color: var(--main-color);
-  transition: width var(--transition-speed);
-}
-a:hover {
-  color: var(--hover-color);
-}
-a:hover::after {
-  width: 100%;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  background: linear-gradient(90deg, var(--main-color), var(--hover-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textGlow 2.5s infinite alternate;
-}
-@keyframes textGlow {
-  from {
-    text-shadow: 0 0 10px var(--main-color), 0 0 20px var(--hover-color);
-  }
-  to {
-    text-shadow: 0 0 20px var(--hover-color), 0 0 40px var(--main-color);
-  }
 }
 
 #app {
@@ -83,51 +40,27 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  animation: slideUp 1s ease;
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
 }
 
 .logo {
   height: 6em;
   padding: 1.5em;
-  transition: transform var(--transition-speed), filter var(--transition-speed);
+  will-change: filter;
+  transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em var(--main-color));
-  transform: rotate(5deg) scale(1.1);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em var(--accent-color));
+  filter: drop-shadow(0 0 2em #f7df1eaa);
 }
 
 .card {
   padding: 2em;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  backdrop-filter: blur(12px);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-}
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(100, 108, 255, 0.2);
 }
 
 .read-the-docs {
   color: #888;
-  transition: color var(--transition-speed);
-}
-.read-the-docs:hover {
-  color: var(--main-color);
 }
 
 button {
@@ -137,19 +70,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: var(--dark-bg);
-  color: white;
+  background-color: #1a1a1a;
   cursor: pointer;
-  transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+  transition: border-color 0.25s;
 }
 button:hover {
-  border-color: var(--main-color);
-  background: linear-gradient(90deg, var(--main-color), var(--hover-color));
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(100, 108, 255, 0.4);
-}
-button:active {
-  transform: scale(0.95);
+  border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
@@ -166,6 +92,5 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
-    color: #213547;
   }
 }
