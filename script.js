@@ -944,13 +944,13 @@ function initializePDFGeneration() {
         downloadFile('Resume.pdf', 'ReenaPraveenaP_FullStack_DotNetDev_Resume.pdf'); // uploaded resume
     });
 
-    downloadPDFResumeBtn.addEventListener('click', function() {
-        downloadFile('Resume.pdf', 'ReenaPraveenaP_FullStack_DotNetDev_Resume.pdf'); // same resume
-    });
+    // downloadPDFResumeBtn.addEventListener('click', function() {
+    //     downloadFile('Resume.pdf', 'ReenaPraveenaP_FullStack_DotNetDev_Resume.pdf'); // same resume
+    // });
 
-    generatePortfolioPDFBtn.addEventListener('click', function() {
-        downloadFile('Portfolio.pdf', 'Reena_Pampana_Portfolio.pdf'); // uploaded portfolio
-    });
+    // generatePortfolioPDFBtn.addEventListener('click', function() {
+    //     downloadFile('Portfolio.pdf', 'Reena_Pampana_Portfolio.pdf'); // uploaded portfolio
+    // });
 }
 
 // // Initialize the download functionality
