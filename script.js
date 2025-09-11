@@ -6,10 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeThemeToggle();
     initializeScrollAnimations();
     initializeSkillBars();
-    initializeContactForm();
     initializeSmoothScrolling();
     initializePDFGeneration();
     initializeParallaxEffects();
+    initializeContactForm();
+    
 });
 
 // Navigation functionality
