@@ -107,13 +107,17 @@ function initializeNavigation() {
             const navbarHeight = navbar.offsetHeight;
 
             if (targetSection) {
+                // Calculate exact top position of the section
+                const sectionTop = targetSection.getBoundingClientRect().top + window.scrollY;
+
+                // Scroll to position minus navbar height + optional offset
                 window.scrollTo({
-                    top: targetSection.offsetTop - navbarHeight,
+                    top: sectionTop - navbarHeight - 10, // 10px extra to avoid overlap
                     behavior: 'smooth'
                 });
             }
 
-            // close mobile menu if open
+            // Close mobile menu if open
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
             document.body.style.overflow = '';
@@ -123,7 +127,6 @@ function initializeNavigation() {
 
 // Initialize navigation on page load
 document.addEventListener('DOMContentLoaded', initializeNavigation);
-
 
 // function initializeNavigation() {
 //     const navbar = document.getElementById('navbar');
