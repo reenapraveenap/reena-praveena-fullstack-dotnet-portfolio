@@ -1,40 +1,43 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  --transition-speed: 0.4s;
   --main-color: #646cff;
   --hover-color: #535bf2;
   --accent-color: #f7df1e;
   --dark-bg: #1a1a1a;
+  --transition-speed: 0.4s;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 }
 
-/* Smooth fade-in for body */
+/* Smooth page load */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  display: flex;
+  place-items: center;
   opacity: 0;
-  animation: fadeIn 1.2s ease forwards;
+  animation: fadeIn 1.5s ease forwards;
 }
-
 @keyframes fadeIn {
   to { opacity: 1; }
 }
 
-/* Links */
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated links */
 a {
   font-weight: 500;
   color: var(--main-color);
@@ -45,151 +48,115 @@ a {
 a::after {
   content: "";
   position: absolute;
-  width: 0%;
+  width: 0;
   height: 2px;
+  bottom: -3px;
   left: 0;
-  bottom: -2px;
-  background-color: var(--main-color);
-  transition: width var(--transition-speed);
+  background: var(--main-color);
+  transition: width 0.3s ease;
 }
-a:hover {
-  color: var(--hover-color);
-}
-a:hover::after {
-  width: 100%;
-}
+a:hover { color: var(--hover-color); }
+a:hover::after { width: 100%; }
 
-/* Heading with animated gradient */
+/* Gradient heading */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  background: linear-gradient(270deg, var(--main-color), var(--hover-color));
+  background: linear-gradient(270deg, var(--main-color), var(--hover-color), var(--accent-color));
+  background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 400% 400%;
-  animation: gradientMove 6s ease infinite, textGlow 2s ease-in-out infinite alternate;
+  animation: gradientShift 10s ease infinite, glowPulse 2.5s ease infinite alternate;
 }
-
-@keyframes gradientMove {
+@keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-@keyframes textGlow {
+@keyframes glowPulse {
   from { text-shadow: 0 0 10px var(--main-color); }
-  to { text-shadow: 0 0 20px var(--hover-color), 0 0 40px var(--main-color); }
+  to { text-shadow: 0 0 25px var(--hover-color), 0 0 50px var(--main-color); }
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  animation: slideUp 1s ease;
+/* Card animations */
+.card {
+  padding: 2em;
+  margin: 1.5rem 0;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease, box-shadow var(--transition-speed);
 }
-@keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0px); opacity: 1; }
+.card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(100, 108, 255, 0.3);
 }
 
-/* Logo hover animation */
+/* Logo animation */
 .logo {
   height: 6em;
   padding: 1.5em;
   transition: transform var(--transition-speed), filter var(--transition-speed);
 }
 .logo:hover {
+  transform: rotate(12deg) scale(1.2);
   filter: drop-shadow(0 0 2em var(--main-color));
-  transform: rotate(10deg) scale(1.15);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em var(--accent-color));
 }
 
-/* Card section with glass effect + reveal animation */
-.card {
-  padding: 2em;
-  margin: 1rem 0;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  backdrop-filter: blur(12px);
-  transform: translateY(40px);
-  opacity: 0;
-  transition: transform var(--transition-speed), opacity var(--transition-speed), box-shadow var(--transition-speed);
-}
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(100, 108, 255, 0.25);
-}
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Read-the-docs subtle animation */
-.read-the-docs {
-  color: #888;
-  transition: color var(--transition-speed);
-}
-.read-the-docs:hover {
-  color: var(--main-color);
-}
-
-/* Button with pulse + gradient hover */
+/* Button with advanced hover */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border-radius: 10px;
+  border: none;
+  padding: 0.8em 1.5em;
+  font-size: 1.1em;
+  font-weight: 600;
   font-family: inherit;
-  background-color: var(--dark-bg);
-  color: white;
+  background: linear-gradient(90deg, var(--main-color), var(--hover-color));
+  color: #fff;
   cursor: pointer;
-  transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-size: 200% auto;
 }
 button:hover {
-  background: linear-gradient(90deg, var(--main-color), var(--hover-color));
+  background-position: right center;
   transform: scale(1.08);
-  box-shadow: 0 8px 24px rgba(100, 108, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(100, 108, 255, 0.6);
 }
-button:active {
-  transform: scale(0.95);
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+button:active { transform: scale(0.95); }
 button.pulse {
   animation: pulse 2s infinite;
 }
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0px rgba(100, 108, 255, 0.6); }
-  50% { box-shadow: 0 0 20px rgba(100, 108, 255, 0.9); }
+  0%, 100% { box-shadow: 0 0 0 rgba(100, 108, 255, 0.8); }
+  50% { box-shadow: 0 0 25px rgba(100, 108, 255, 1); }
 }
 
 /* Footer closing statement */
 .footer-closing {
-  font-size: 1.2rem;
   margin-top: 3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: var(--main-color);
-  animation: fadeUp 2s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: footerReveal 2.5s ease forwards;
 }
-@keyframes fadeUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0px); opacity: 1; }
+@keyframes footerReveal {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Light mode overrides */
+/* Light mode */
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
+  body { color: #213547; background-color: #ffffff; }
   a:hover { color: #747bff; }
-  button { background-color: #f9f9f9; color: #213547; }
+  button { background: linear-gradient(90deg, #747bff, var(--hover-color)); color: #213547; }
 }
-
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Playfair+Display:wght@600&display=swap');
 
