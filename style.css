@@ -198,7 +198,7 @@ button.pulse {
 
 /* Thank You styled differently */
 .closing-note .thank-you {
- font-family: 'Pacifico', cursive;
+   font-family: 'Dancing Script', cursive;
   font-size: 1.6rem;
   font-weight: 600;
   color: #222; /* dark for white background */
