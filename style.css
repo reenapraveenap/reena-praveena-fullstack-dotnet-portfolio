@@ -1571,7 +1571,7 @@ textarea:focus-visible,
   font-size: 1.6rem;
   font-weight: 600;
   margin: 0.8rem 0;
-  background: linear-gradient(270deg, var(--main-color), var(--hover-color), var(--accent-color));
+  background: linear-gradient(270deg, var(--primary-color), var(--primary-dark), var(--accent-color));
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1582,7 +1582,7 @@ textarea:focus-visible,
 .closing-note .thank-you {
   font-size: 1.3rem;
   font-weight: 500;
-  color: var(--main-color);
+  color: var(--primary-color);
   opacity: 0;
   transform: translateY(20px);
   animation: thankYouReveal 2.2s ease forwards;
@@ -1601,14 +1601,12 @@ textarea:focus-visible,
   from { transform: translateY(-10px); }
   to   { transform: translateY(10px); }
 }
-
-/* Reuse heading glow */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 @keyframes glowPulse {
-  from { text-shadow: 0 0 8px var(--main-color); }
-  to { text-shadow: 0 0 20px var(--hover-color), 0 0 35px var(--main-color); }
+  from { text-shadow: 0 0 8px var(--primary-color); }
+  to   { text-shadow: 0 0 20px var(--primary-dark), 0 0 35px var(--primary-color); }
 }
