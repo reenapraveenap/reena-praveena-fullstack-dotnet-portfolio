@@ -67,6 +67,7 @@ function initializeNavigation() {
             document.body.style.overflow = '';
         });
     });
+}
 
 
     // Active navigation link highlighting
