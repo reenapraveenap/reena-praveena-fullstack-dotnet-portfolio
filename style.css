@@ -1,5 +1,5 @@
 /* CSS Variables with Linear Gradient Theme */
-/* :root {
+:root {
     --primary-gradient: linear-gradient(to right, #0f766e, #0891b2, #334155);
     --primary-color: #0891b2;
     --primary-dark: #0f766e;
@@ -43,7 +43,7 @@
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
 }
-
+ 
 /* Dark Theme Variables */
 [data-theme="dark"] {
     --text-primary: #f8fafc;
@@ -1499,7 +1499,9 @@ textarea:focus-visible,
     .section-title {
         color: black !important;
     }
-} */ pre
+} 
+
+
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Playfair+Display:wght@600&display=swap');
 
