@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSmoothScrolling();
     initializePDFGeneration();
     initializeParallaxEffects();
-    initializeContactForm();
+   // initializeContactForm();
     
 });
 
