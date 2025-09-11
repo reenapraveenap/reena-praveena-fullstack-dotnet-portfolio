@@ -37,13 +37,32 @@ function initializeNavigation() {
     });
     
     // Close mobile menu when clicking on links
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+    // navLinks.forEach(link => {
+    //     link.addEventListener('click', function() {
+    //         navMenu.classList.remove('active');
+    //         navToggle.classList.remove('active');
+    //         document.body.style.overflow = '';
+    //     });
+    // });
+    link.addEventListener('click', function(e) {
+    e.preventDefault(); // stop instant jump
+
+    const targetId = this.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+    const navbarHeight = navbar.offsetHeight;
+
+    // smooth scroll with navbar offset
+    window.scrollTo({
+        top: targetSection.offsetTop - navbarHeight,
+        behavior: 'smooth'
     });
+
+    // close menu
+    navMenu.classList.remove('active');
+    navToggle.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
@@ -58,9 +77,11 @@ function initializeNavigation() {
     window.addEventListener('scroll', throttle(function() {
         let current = '';
         const sections = document.querySelectorAll('section');
+        const navbarHeight = navbar.offsetHeight; 
         
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
+            // const sectionTop = section.offsetTop - 100;
+              const sectionTop = section.offsetTop - navbarHeight;
             const sectionHeight = section.offsetHeight;
             if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
