@@ -181,7 +181,7 @@ button.pulse {
 
 /* Headline with animated gradient text */
 .closing-note .headline {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.5;
@@ -198,7 +198,7 @@ button.pulse {
 
 /* Thank You styled differently */
 .closing-note .thank-you {
-   font-family: 'Dancing Script', cursive;
+  font-family: 'Lora', serif;
   font-size: 1.6rem;
   font-weight: 600;
   color: #222; /* dark for white background */
