@@ -1,5 +1,5 @@
 /* CSS Variables with Linear Gradient Theme */
- :root {
+:root {
     --primary-gradient: linear-gradient(to right, #0f766e, #0891b2, #334155);
     --primary-color: #0891b2;
     --primary-dark: #0f766e;
@@ -1499,7 +1499,43 @@ textarea:focus-visible,
     .section-title {
         color: black !important;
     }
-} 
+}
+
+/* Closing Note Styling */
+.closing-note {
+  text-align: center;
+  margin: 50px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* Animation for the first line (slide-in effect) */
+.animated-line {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for the thank-you (fade-in delay) */
+.animated-fade {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+  animation-delay: 1s; /* starts after the first line */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Playfair+Display:wght@600&display=swap');
@@ -1524,7 +1560,7 @@ textarea:focus-visible,
 
 /* Headline with animated gradient text */
 .closing-note .headline {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Lucida Handwriting', cursive;
   font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.5;
@@ -1541,7 +1577,7 @@ textarea:focus-visible,
 
 /* Thank You styled differently */
 .closing-note .thank-you {
- font-family: 'Lora', serif;
+ font-family: 'Pacifico', cursive;
   font-size: 1.6rem;
   font-weight: 600;
   color: #222; /* dark for white background */
@@ -1591,5 +1627,3 @@ textarea:focus-visible,
   0% { transform: scaleX(0); }
   100% { transform: scaleX(1); }
 }
-
-
