@@ -459,68 +459,137 @@ function animateSkillBars() {
 // Initialize EmailJS (v4)
 emailjs.init('ZbhAuwPnsYbUMEnS6'); // Replace with your public key from EmailJS
 
-const form = document.getElementById('contact-form');
+// const form = document.getElementById('contact-form');
 
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+// if (form) {
+//     form.addEventListener('submit', function(e) {
+//         e.preventDefault();
 
-        // Grab values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('mobile').value.trim();
-        const subject = document.getElementById('subject').value.trim();
-        const message = document.getElementById('message').value.trim();
-        const time = new Date().toLocaleString(); // Add timestamp
+//         // Grab values
+//         const name = document.getElementById('name').value.trim();
+//         const email = document.getElementById('email').value.trim();
+//         const phone = document.getElementById('mobile').value.trim();
+//         const subject = document.getElementById('subject').value.trim();
+//         const message = document.getElementById('message').value.trim();
+//         const time = new Date().toLocaleString(); // Add timestamp
 
-        // Validation
-        let isValid = true;
+//         // Validation
+//         let isValid = true;
 
-        if (name.length < 2) {
-            showError('name-error', 'Name must be at least 2 characters');
-            isValid = false;
-        } else clearError('name-error');
+//         if (name.length < 2) {
+//             showError('name-error', 'Name must be at least 2 characters');
+//             isValid = false;
+//         } else clearError('name-error');
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showError('email-error', 'Invalid email');
-            isValid = false;
-        } else clearError('email-error');
+//         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//         if (!emailRegex.test(email)) {
+//             showError('email-error', 'Invalid email');
+//             isValid = false;
+//         } else clearError('email-error');
 
-        const phoneRegex = /^[6-9]\d{9}$/;
-        if (phone && !phoneRegex.test(phone)) {
-            showError('phone-error', 'Invalid 10-digit phone number');
-            isValid = false;
-        } else clearError('phone-error');
+//         const phoneRegex = /^[6-9]\d{9}$/;
+//         if (phone && !phoneRegex.test(phone)) {
+//             showError('phone-error', 'Invalid 10-digit phone number');
+//             isValid = false;
+//         } else clearError('phone-error');
 
-        if (message.length < 10) {
-            showError('message-error', 'Message must be at least 10 characters');
-            isValid = false;
-        } else clearError('message-error');
+//         if (message.length < 10) {
+//             showError('message-error', 'Message must be at least 10 characters');
+//             isValid = false;
+//         } else clearError('message-error');
 
-        if (!isValid) return;
+//         if (!isValid) return;
 
-        // Template params
-        const templateParams = {
-            name: name,
-            email: email,
-            phone: phone,
-            subject: subject,
-            message: message,
-            time: time
-        };
+//         // Template params
+//         const templateParams = {
+//             name: name,
+//             email: email,
+//             phone: phone,
+//             subject: subject,
+//             message: message,
+//             time: time
+//         };
 
-        // Send email
-        emailjs.send('service_7lt259o', 'template_pwqngdp', templateParams)
-            .then(() => {
-                showSuccessMessage();
-                form.reset();
-            })
-            .catch(error => {
-                alert("Failed to send message: " + JSON.stringify(error));
-            });
-    });
-}
+//         // Send email
+//         emailjs.send('service_7lt259o', 'template_pwqngdp', templateParams)
+//             .then(() => {
+//                 showSuccessMessage();
+//                 form.reset();
+//             })
+//             .catch(error => {
+//                 alert("Failed to send message: " + JSON.stringify(error));
+//             });
+//     });
+// }
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Grab values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('mobile').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const time = new Date().toLocaleString(); 
+
+    let isValid = true;
+
+    // ✅ Name validation
+    if (!name) {
+        showError('name-error', 'Full name is required');
+        isValid = false;
+    } else if (name.length < 2) {
+        showError('name-error', 'Name must be at least 2 characters');
+        isValid = false;
+    } else {
+        clearError('name-error');
+    }
+
+    // ✅ Email validation
+    if (!email) {
+        showError('email-error', 'Email address is required');
+        isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError('email-error', 'Invalid email');
+        isValid = false;
+    } else {
+        clearError('email-error');
+    }
+
+    // ✅ Phone validation (optional, only if entered)
+    if (phone && !/^[6-9]\d{9}$/.test(phone)) {
+        showError('phone-error', 'Invalid 10-digit phone number');
+        isValid = false;
+    } else {
+        clearError('phone-error');
+    }
+
+    // ✅ Message validation
+    if (!message) {
+        showError('message-error', 'Message is required');
+        isValid = false;
+    } else if (message.length < 10) {
+        showError('message-error', 'Message must be at least 10 characters');
+        isValid = false;
+    } else {
+        clearError('message-error');
+    }
+
+    if (!isValid) return;
+
+    // Template params
+    const templateParams = { name, email, phone, subject, message, time };
+
+    // Send email
+    emailjs.send('service_7lt259o', 'template_pwqngdp', templateParams)
+        .then(() => {
+            showSuccessMessage();
+            form.reset();
+        })
+        .catch(error => {
+            alert("Failed to send message: " + JSON.stringify(error));
+        });
+});
 
 // Error helper
 function showError(id, msg) {
