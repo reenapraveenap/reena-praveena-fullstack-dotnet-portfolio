@@ -1,4 +1,4 @@
-// Allow only letters & spaces in Full Name
+// ✅ Allow only letters & spaces in Full Name
 document.getElementById('name').addEventListener('keypress', function (e) {
     const char = String.fromCharCode(e.which);
     if (!/^[A-Za-z\s]$/.test(char)) {
@@ -6,11 +6,24 @@ document.getElementById('name').addEventListener('keypress', function (e) {
     }
 });
 
-// Allow only numbers in Mobile
+// ✅ Allow only numbers in Mobile, must start from 6–9
 document.getElementById('mobile').addEventListener('keypress', function (e) {
     const char = String.fromCharCode(e.which);
+
+    // Block non-digits
     if (!/^\d$/.test(char)) {
-        e.preventDefault(); // block non-digits
+        e.preventDefault();
+        return;
+    }
+
+    // Check if it's the first digit
+    if (this.value.length === 0 && !/[6-9]/.test(char)) {
+        e.preventDefault(); // block if first digit is not 6–9
+    }
+
+    // Optional: Limit to 10 digits max
+    if (this.value.length >= 10) {
+        e.preventDefault();
     }
 });
 
