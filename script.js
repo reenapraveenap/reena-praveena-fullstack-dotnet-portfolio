@@ -521,6 +521,8 @@ emailjs.init('ZbhAuwPnsYbUMEnS6'); // Replace with your public key from EmailJS
 //             });
 //     });
 // }
+const form = document.getElementById('contact-form'); // 👈 replace with your form’s id
+
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
