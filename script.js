@@ -564,7 +564,15 @@ sendBtn.addEventListener('click', function () {
     } else {
         clearError('phone-error');
     }
-
+ if (!subject) {
+        showError('subject-error', 'subject is required');
+        isValid = false;
+    } else if (subject.length < 2) {
+        showError('subject-error', 'subject must be at least 2 characters');
+        isValid = false;
+    } else {
+        clearError('subject-error');
+    }
     // ✅ Message validation
     if (!message) {
         showError('message-error', 'Message is required');
