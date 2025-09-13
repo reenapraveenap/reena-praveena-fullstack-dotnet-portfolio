@@ -1,3 +1,19 @@
+// Allow only letters & spaces in Full Name
+document.getElementById('name').addEventListener('keypress', function (e) {
+    const char = String.fromCharCode(e.which);
+    if (!/^[A-Za-z\s]$/.test(char)) {
+        e.preventDefault(); // block invalid chars
+    }
+});
+
+// Allow only numbers in Mobile
+document.getElementById('mobile').addEventListener('keypress', function (e) {
+    const char = String.fromCharCode(e.which);
+    if (!/^\d$/.test(char)) {
+        e.preventDefault(); // block non-digits
+    }
+});
+
 // Main JavaScript functionality for Reena Pampana's Portfolio
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
