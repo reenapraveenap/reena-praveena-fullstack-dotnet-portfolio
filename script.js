@@ -521,11 +521,10 @@ emailjs.init('ZbhAuwPnsYbUMEnS6'); // Replace with your public key from EmailJS
 //             });
 //     });
 // }
-const form = document.getElementById('contact-form'); // 👈 replace with your form’s id
+const sendBtn = document.getElementById('sendBtn');
+const form = document.getElementById('contact-form');
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
+sendBtn.addEventListener('click', function () {
     // Grab values
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -558,7 +557,7 @@ form.addEventListener('submit', function(e) {
         clearError('email-error');
     }
 
-    // ✅ Phone validation (optional, only if entered)
+    // ✅ Phone validation (optional)
     if (phone && !/^[6-9]\d{9}$/.test(phone)) {
         showError('phone-error', 'Invalid 10-digit phone number');
         isValid = false;
@@ -579,7 +578,7 @@ form.addEventListener('submit', function(e) {
 
     if (!isValid) return;
 
-    // Template params
+    // Prepare params
     const templateParams = { name, email, phone, subject, message, time };
 
     // Send email
@@ -592,6 +591,7 @@ form.addEventListener('submit', function(e) {
             alert("Failed to send message: " + JSON.stringify(error));
         });
 });
+
 
 // Error helper
 function showError(id, msg) {
