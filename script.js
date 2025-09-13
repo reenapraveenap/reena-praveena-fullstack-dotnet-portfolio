@@ -553,7 +553,9 @@ emailjs.init('ZbhAuwPnsYbUMEnS6'); // Replace with your public key from EmailJS
 const sendBtn = document.getElementById('sendBtn');
 const form = document.getElementById('contact-form');
 
-sendBtn.addEventListener('click', function () {
+// sendBtn.addEventListener('click', function () {
+sendBtn.addEventListener('click', function (e) {
+    e.preventDefault(); // ⛔ stop form refresh
     // Grab values
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
