@@ -1,31 +1,28 @@
 // ✅ Allow only letters & spaces in Full Name
-document.getElementById('name').addEventListener('keypress', function (e) {
-    const char = String.fromCharCode(e.which);
-    if (!/^[A-Za-z\s]$/.test(char)) {
-        e.preventDefault(); // block invalid chars
+// ✅ Full Name: only letters & spaces, max 35 chars
+document.getElementById('name').addEventListener('input', function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, ''); // remove invalid chars
+    if (this.value.length > 35) {
+        this.value = this.value.substring(0, 35);
     }
 });
 
-// ✅ Allow only numbers in Mobile, must start from 6–9
-document.getElementById('mobile').addEventListener('keypress', function (e) {
-    const char = String.fromCharCode(e.which);
+// ✅ Mobile: only digits, must start 6–9, max 10 digits
+document.getElementById('mobile').addEventListener('input', function () {
+    // Remove non-digits
+    this.value = this.value.replace(/\D/g, '');
 
-    // Block non-digits
-    if (!/^\d$/.test(char)) {
-        e.preventDefault();
-        return;
+    // Enforce first digit 6–9
+    if (this.value.length > 0 && !/^[6-9]/.test(this.value[0])) {
+        this.value = this.value.substring(1); // drop invalid first digit
     }
 
-    // Check if it's the first digit
-    if (this.value.length === 0 && !/[6-9]/.test(char)) {
-        e.preventDefault(); // block if first digit is not 6–9
-    }
-
-    // Optional: Limit to 10 digits max
-    if (this.value.length >= 10) {
-        e.preventDefault();
+    // Limit to 10 digits
+    if (this.value.length > 10) {
+        this.value = this.value.substring(0, 10);
     }
 });
+
 
 // Main JavaScript functionality for Reena Pampana's Portfolio
 document.addEventListener('DOMContentLoaded', function() {
