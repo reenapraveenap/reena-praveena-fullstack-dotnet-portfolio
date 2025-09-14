@@ -9,12 +9,11 @@ document.getElementById('name').addEventListener('input', function () {
 
 // ✅ Mobile: only digits, must start 6–9, max 10 digits
 document.getElementById('mobile').addEventListener('input', function () {
-    // Remove non-digits
     this.value = this.value.replace(/\D/g, '');
 
-    // Enforce first digit 6–9
-    if (this.value.length > 0 && !/^[6-9]/.test(this.value[0])) {
-        this.value = this.value.substring(1); // drop invalid first digit
+    // Enforce first digit between 6–9
+    if (this.value.length > 0 && !/^[6-9]/.test(this.value)) {
+        this.value = this.value.substring(1); // remove the invalid first digit
     }
 
     // Limit to 10 digits
