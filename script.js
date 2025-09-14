@@ -574,15 +574,31 @@ sendBtn.addEventListener('click', function (e) {
     }
 
     // ✅ Email validation
-    if (!email) {
-        showError('email-error', 'Email address is required');
-        isValid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showError('email-error', 'Invalid email');
+    // if (!email) {
+    //     showError('email-error', 'Email address is required');
+    //     isValid = false;
+    // } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    //     showError('email-error', 'Invalid email');
+    //     isValid = false;
+    // } else {
+    //     clearError('email-error');
+    // }
+    // ✅ Email validation
+if (!email) {
+    showError('email-error', 'Email address is required');
+    isValid = false;
+} else {
+    // Strict regex for allowed TLDs
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(in|dev|com|info|net|org)$/i;
+
+    if (!emailRegex.test(email)) {
+        showError('email-error', 'Enter a valid email ending with .in, .dev, .com, .info, .net, or .org');
         isValid = false;
     } else {
         clearError('email-error');
     }
+}
+
 
     // ✅ Phone validation (optional)
     if (phone && !/^[6-9]\d{9}$/.test(phone)) {
